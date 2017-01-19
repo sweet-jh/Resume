@@ -23,11 +23,11 @@ public class Resume {
         workExperience.setCompany(company);
     }
 
-    private Resume(WorkExperience workExperience) {
-        this.workExperience = workExperience;
+    private Resume(WorkExperience workExperience) throws CloneNotSupportedException {
+        this.workExperience = workExperience.cloneSelf();
     }
 
-    public Resume cloneSelf() {
+    public Resume cloneSelf() throws CloneNotSupportedException {
         Resume resume = new Resume(this.workExperience);
         resume.age = this.age;
         resume.name = this.name;
