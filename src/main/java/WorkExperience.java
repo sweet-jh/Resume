@@ -3,7 +3,7 @@ import java.util.Date;
 /**
  * Created by hjing on 1/17/17.
  */
-public class WorkExperience implements Cloneable{
+public class WorkExperience {
     private Date date;
     private String company;
 

@@ -3,13 +3,13 @@ import java.util.Date;
 /**
  * Created by hjing on 1/17/17.
  */
-public class Work implements Cloneable {
+public class Resume {
     private String name;
     private String sex;
     private int age;
     private WorkExperience workExperience;
 
-    public Work(String name, String sex, int age)
+    public Resume(String name, String sex, int age)
     {
         this.name = name;
         this.sex = sex;
@@ -23,15 +23,16 @@ public class Work implements Cloneable {
         workExperience.setCompany(company);
     }
 
-    private void cloneWorkExperience(WorkExperience workExperience) throws CloneNotSupportedException {
-        workExperience.cloneSelf();
+    private Resume(WorkExperience workExperience) {
         this.workExperience = workExperience;
     }
 
-    public Work cloneSelf() throws CloneNotSupportedException {
-        WorkExperience workExperience = new WorkExperience();
-        this.cloneWorkExperience(workExperience);
-        return (Work)this.clone();
+    public Resume cloneSelf() {
+        Resume resume = new Resume(this.workExperience);
+        resume.age = this.age;
+        resume.name = this.name;
+        resume.sex = this.sex;
+        return resume;
     }
 
     public void printInformation()
